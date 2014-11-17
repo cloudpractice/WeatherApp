@@ -60,8 +60,8 @@ resources:
             apt-get install git -y
 
             cd /root
-            git clone https://github.com/seanjkellett/impress.js.git
-            git clone https://github.com/seanjkellett/WeatherApp.git
+            git clone https://github.com/cloudpractice/impress.js.git
+            git clone https://github.com/cloudpractice/WeatherApp.git
             mv impress.js/* /var/www/html
             mkdir /var/www/html/weather
             mv WeatherApp/src/* /var/www/html/weather
