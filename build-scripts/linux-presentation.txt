@@ -20,11 +20,11 @@ apt-get install git -y
 cd /root
 
 # clone the git repo
-git clone https://github.com/cloudpractice/impress.js.git
+git clone https://github.com/cloudpractice/reveal.js.git
 git clone https://github.com/cloudpractice/WeatherApp.git
 
 # copy the new web files
-mv impress.js/* /var/www/html
+mv reveal.js/* /var/www/html
 
 mkdir /var/www/html/weather
 mv WeatherApp/src/* /var/www/html/weather
