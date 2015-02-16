@@ -2,6 +2,14 @@ heat_template_version: 2013-05-23
 description: >
   A simple Heat template that spins up multiple instances and a private network (HOT template in YAML).
 
+ 
+parameters:
+ image:
+    type: string
+    label: Image Name
+    description: Image to be used for compute instance
+    default: trusty-server-cloudimg-amd64-disk1.2015-01-27
+ 
 resources:
   heat_network_01:
     type: OS::Neutron::Net
@@ -47,7 +55,7 @@ resources:
     type: OS::Nova::Server
     properties:
       name: web-app-instance
-      image: 2eb9dacc-f5bc-4972-98a9-e3421f8fba7c
+      image: { get_param: image }
       flavor: Micro-Small
       networks:
         - port: { get_resource: webapp_port }
@@ -60,9 +68,8 @@ resources:
             apt-get install git -y
 
             cd /root
-            git clone https://github.com/cloudpractice/impress.js.git
+            git clone https://github.com/cloudpractice/reveal.js.git
             git clone https://github.com/cloudpractice/WeatherApp.git
-            mv impress.js/* /var/www/html
+            mv reveal.js/* /var/www/html
             mkdir /var/www/html/weather
             mv WeatherApp/src/* /var/www/html/weather
-
